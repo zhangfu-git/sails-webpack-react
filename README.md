@@ -1,4 +1,4 @@
-# react-sails
+# sails+webpack+react
 
 a [Sails](http://sailsjs.org) application
 * git clone git@github.com:zhangfu-git/sails_webpack_react.cli.git

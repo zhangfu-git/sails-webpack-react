@@ -7,5 +7,7 @@ a [Sails](http://sailsjs.org) application
 * sails lift
 * npm run dev
 
->给自己备份一个用webpack+react+sails 的初始项目，进行简单的webpack配置，支持热加载和自动刷新(待扩展)。
+>给自己备份一个用webpack+react+sails 的初始项目。
+* 支持热加载和自动刷新。
+* 支持es6语法
 

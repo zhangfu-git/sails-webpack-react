@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin()   //代码压缩插件
       )
     }
   });

@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 
 module.exports = {
   devtool: 'eval-source-map',   //配置生成Source Maps
@@ -29,7 +31,7 @@ module.exports = {
       },
       {
         test  : /\.css$/,
-        loader: 'style!css?modules!postcss'     //postcss-loader 配合下面的autoprefixer自动添加前缀的插件
+        loader: ExtractTextPlugin.extract('style!css?modules!postcss')     //postcss-loader 配合下面的autoprefixer自动添加前缀的插件
       }
     ]
 
@@ -39,7 +41,8 @@ module.exports = {
   ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    new webpack.HotModuleReplacementPlugin()  //添加了hotmodulereplacementplugin 让其运行不需要添加参数/
+    new webpack.HotModuleReplacementPlugin(),  //添加了hotmodulereplacementplugin 让其运行不需要添加参数/
+    new ExtractTextPlugin("[name]-[hash].css")
   ],
   devServer: {
     hot: true,

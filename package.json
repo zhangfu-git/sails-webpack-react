@@ -21,7 +21,8 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack --confg ./webpack.production.config.js --progress"
   },
   "main": "app.js",
   "repository": {
@@ -31,13 +32,19 @@
   "author": "zhangfu",
   "license": "",
   "devDependencies": {
+    "autoprefixer": "^6.5.1",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
+    "babel-plugin-react-transform": "^2.0.2",
     "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "json-loader": "^0.5.4",
+    "postcss-loader": "^0.13.0",
+    "react-transform-hmr": "^1.0.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"

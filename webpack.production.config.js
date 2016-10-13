@@ -26,13 +26,24 @@ module.exports = {
         loader  : 'babel'
       },
       {
-        test : /\.json$/,
+        test  : /\.json$/,
         loader: 'json'
       },
       {
         test  : /\.css$/,
         loader: ExtractTextPlugin.extract('style!css?modules!postcss')     //postcss-loader 配合下面的autoprefixer自动添加前缀的插件
-      }
+      },
+      {
+        test : /\.(?: jpg|gir|png|svg)$/,
+        loaders: [
+          "url?limit=8000$name=img/[hash].[ext]",
+          "image-webpack"
+        ]
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+        loader: 'url?limit=10000'
+      }      
     ]
 
   },
@@ -41,14 +52,13 @@ module.exports = {
   ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-    new webpack.HotModuleReplacementPlugin(),  //添加了hotmodulereplacementplugin 让其运行不需要添加参数/
-    new ExtractTextPlugin("[name]-[hash].css")
-  ],
-  devServer: {
-    hot: true,
-    inline: true,
-    color: true
-  }
+    new ExtractTextPlugin("[name]-[hash].css"),
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        }
+    })
+  ]
 
 
 }

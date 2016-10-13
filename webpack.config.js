@@ -30,7 +30,17 @@ module.exports = {
       {
         test  : /\.css$/,
         loader: 'style!css?modules!postcss'     //postcss-loader 配合下面的autoprefixer自动添加前缀的插件
-      }
+      },
+      {
+        test : /\.(?: jpg|gir|png|svg)$/,
+        loaders: [
+          "url?limit=8000$name=img/[hash].[ext]"
+        ]
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+        loader: 'url?limit=10000'
+      }      
     ]
 
   },

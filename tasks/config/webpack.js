@@ -13,8 +13,7 @@ module.exports = function (grunt) {
       plugins: webpackConfig.plugins.concat(
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.optimize.UglifyJsPlugin()   //代码压缩插件
+        new webpack.optimize.AggressiveMergingPlugin()
       )
     }
   });

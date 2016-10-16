@@ -34,7 +34,10 @@ module.exports.routes = {
 
   '/': {
     view: 'index'
-  }
+  },
+
+  'get /messages': 'MessagesController.getMessage',
+  'post /messages': 'MessagesController.postMessage'
 
   /***************************************************************************
   *                                                                          *
